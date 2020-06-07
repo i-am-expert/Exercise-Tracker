@@ -1,12 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import "bootstrap/dist/css/bootstrap.min.css"
+
+import Navbar from './components/navbar';
+import ExerciseList from './components/exercise-list.js';
+import EditExercise from './components/edit-exercise';
+import CreateExercise from './components/create-exercise';
+import CreateUser from './components/create-user';
 
 function App() {
   return (
-    <div className="App">
-        <h1>Hello World</h1> 
-    </div>
+    <Router>
+      <div className="container">
+      <Navbar />
+        <br />
+        <Route path="/" exact  component={ExerciseList}/>
+        <Route path="/edit/:id" component={EditExercise}/>
+        <Route path="/create" component={CreateExercise} />
+        <Route path="/user" component={CreateUser} />
+      </div> 
+    </Router>
   );
 }
 
